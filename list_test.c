@@ -1,17 +1,16 @@
 #include <glib.h>
+#include "list.h"
 
-static void simple_test_case (void) {
-  g_assert (g_bit_storage (1) == 1);
-  g_assert_cmpint (g_bit_storage (1), ==, 1);
+List * test_list = NULL;
+
+static void create_list (void) {
+  g_assert (test_list == NULL);
+  test_list = list_new();
+  g_assert (test_list != NULL);
 }
 
 int main(int argc, char ** argv) {
   g_test_init(&argc, &argv, NULL);
-  // initialize test program
-  //gtk_test_init (&argc, &argv);
-
-  g_test_add_func ("/Create list", simple_test_case);  
-
+  g_test_add_func ("/Create list", create_list);  
   return g_test_run();
-  
 }
