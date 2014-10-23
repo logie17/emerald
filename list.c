@@ -24,3 +24,15 @@ int List_insert(List * list, void * value) {
   list->size++;
   return 0;
 }
+
+void * List_pop(List * list) {
+  Node * head_node = list->head;
+  if ( head_node != NULL ) {
+    void * return_data = head_node->data;
+    list->head = list->head->next;
+    head_node = NULL;
+    free(head_node);
+    return return_data;
+  }
+  return NULL;
+}    

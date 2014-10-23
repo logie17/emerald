@@ -9,6 +9,8 @@ static void create_list (void) {
   test_list = list_new();
   g_assert (test_list != NULL);
   g_assert (List_insert(test_list, test_data1) == 0);
+  g_assert (List_pop(test_list) == test_data1);
+  g_assert (List_pop(test_list) == NULL);
 }
 
 int main(int argc, char ** argv) {

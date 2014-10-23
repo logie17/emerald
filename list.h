@@ -16,5 +16,6 @@ typedef struct List {
 
 List * list_new();
 int List_insert(List * list, void * value);
+void * List_pop(List * list);
 
 #endif
