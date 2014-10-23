@@ -11,8 +11,10 @@ typedef struct Node {
 typedef struct List {
   int size;
   Node * head;
+  Node * tail;
 } List;
 
 List * list_new();
+int List_insert(List * list, void * value);
 
 #endif
