@@ -4,30 +4,41 @@
 typedef struct {
   char * type;
   char * content;
+  int position;
 } token;
+
+typdef struct {
+  char * name
+};
+
+const char* const ops[] = {
+  "+",
+  "-",
+}; // all const
 
 int main(void) {
   
-printf("Begin lexing!\n");
+  printf("Begin lexing!\n");
 
- static const char filename[] = "src.e";
- FILE * file = fopen(filename, "r");
- char * code;
- size_t n = 0;
- int c;
+  static const char filename[] = "src.e";
+  FILE * file = fopen(filename, "r");
+  char * code;
+  size_t n = 0;
+  int c;
 
- if (file) {
-   fseek(file, 0, SEEK_END);
-   long f_size = ftell(file);
-   fseek(file, 0, SEEK_SET);
-
-   code = malloc(f_size);
-
-   while((c = fgetc(file)) != EOF) {
-     code[n++] = (char)c;
-     printf("%c\n", (char)c);
-   }
-   code[n] = '\0';
- }
+  if (file) {
+    fseek(file, 0, SEEK_END);
+    long f_size = ftell(file);
+    fseek(file, 0, SEEK_SET);
+    
+    code = malloc(f_size);
+    
+    while((c = fgetc(file)) != EOF) {
+      code[n++] = (char)c;
+      printf("%c\n", (char)c);
+    }
+    
+    code[n] = '\0';
+  }
   exit(1);
 }
