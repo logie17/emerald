@@ -4,6 +4,7 @@ List * list_new() {
   return (List *)calloc(1, sizeof(List));
 }
 
+// List_insert This will insert a new item in the list.
 int List_insert(List * list, void * value) {
   Node * new_element;  
   
@@ -25,6 +26,7 @@ int List_insert(List * list, void * value) {
   return 0;
 }
 
+// List_pop This will pop an item off of the list
 void * List_pop(List * list) {
   Node * head_node = list->head;
   if ( head_node != NULL ) {
