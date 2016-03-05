@@ -7,9 +7,9 @@ typedef struct {
   int position;
 } token;
 
-typdef struct {
-  char * name
-};
+typedef struct {
+  char * name;
+} thing;
 
 const char* const ops[] = {
   "+",
