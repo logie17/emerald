@@ -1,26 +1,39 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "lexer.h"
 
-typedef struct {
-  char * type;
-  char * content;
-  int position;
-} token;
+Lexer * lexer_new() {
+  return (Lexer *)calloc(1, sizeof(Lexer));
+}
 
-typedef struct {
-  char * name;
-} thing;
+// List_insert This will insert a new item in the list.
+void skipWhiteSpace(Lexer * l) {
+  while (l->currentChar != NULL && l.currentChar == ' ') {
+    advance(l);
+  }
+}
 
-const char* const ops[] = {
-  "+",
-  "-",
-}; // all const
+// Advance this will advance the token
+void Advance(Lexer *l) {
+  l->post = l->pos + 1;
+  if (l->pos == (len(l->text) - 1 )) {
+    l->currentChar = NULL;
+  } else {
+    l->currentChar = l->text[l->pos];
+  }
+}
+
+Token * GetNextToken(Lexer *l) {
+  if (l->currentChar != NULL) {
+    if (l->currentChar == ' ') {
+      skipWhiteSace(l);
+    }
+  }
+}
 
 int main(void) {
   
   printf("Begin lexing!\n");
 
-  static const char filename[] = "src.e";
+  static const char filename[] = "./examples/src.e";
   FILE * file = fopen(filename, "r");
   char * code;
   size_t n = 0;
@@ -42,3 +55,5 @@ int main(void) {
   }
   exit(1);
 }
+
+
