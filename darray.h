@@ -9,7 +9,7 @@ typedef struct DynamicArray {
     size_t element_size;
     size_t expand_rate;
     void **contents;
-} DyanmicArray;
+} DynamicArray;
 
 DynamicArray *DyanmicArray_new(size_t element_size, size_t initial_max);
 
@@ -24,8 +24,6 @@ int DynamicArray_expand(DynamicArray *a);
 void *DynamicArray_remove(DynamicArray *a, int i);
 
 int DynamicArray_contract(DynamicArray *a);
-
-
 
 #define DEFAULT_EXPAND_RATE 300
 

@@ -1,7 +1,7 @@
-#include <darray.h>
+#include "darray.h"
 
-DyanmicArray *DArray_new(size_t element_size, size_t initial_max) {
-    DyanmicArray *a = malloc(sizeof(DyanmicArray));
+DynamicArray *DynamicArray_new(size_t element_size, size_t initial_max) {
+    DynamicArray *a = malloc(sizeof(DynamicArray));
     if (a == NULL ) {
       // Do something smart
       return NULL;
@@ -17,7 +17,7 @@ DyanmicArray *DArray_new(size_t element_size, size_t initial_max) {
     a->element_size = element_size;
     a->expand_rate = DEFAULT_EXPAND_RATE;
 
-    return array;
+    return a;
 }
 
 
@@ -48,7 +48,7 @@ int DyanmicArray_push(DynamicArray *a, void *d) {
     a->end++;
 
     if(a->end >= a->max) {
-        return DynamicArray_expand(array);
+        return DynamicArray_expand(a);
     } else {
         return 0;
     }
@@ -61,7 +61,7 @@ void *DynamicArray_pop(DynamicArray *a) {
     }
 
     void *d = DynamicArray_remove(a, a->end - 1);
-    array->end--;
+    a->end--;
 
     if(a->end > (int)a->expand_rate && a->end % a->expand_rate) {
         DynamicArray_contract(a);
