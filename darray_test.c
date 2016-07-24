@@ -1,5 +1,4 @@
 #include <glib.h>
-#include <stdio.h>
 #include "darray.h"
 
 static DynamicArray *test_darray = NULL;

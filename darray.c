@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "darray.h"
 
 DynamicArray *DynamicArray_new(size_t element_size, size_t initial_max) {
