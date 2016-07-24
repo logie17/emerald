@@ -11,7 +11,7 @@ typedef struct DynamicArray {
     void **contents;
 } DynamicArray;
 
-DynamicArray *DyanmicArray_new(size_t element_size, size_t initial_max);
+DynamicArray *DynamicArray_new(size_t element_size, size_t initial_max);
 
 void DynamicArray_destroy(DynamicArray *a);
 
